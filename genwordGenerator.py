@@ -30,4 +30,12 @@ class genwordGenerator:
         typeAlcohol = req['typeAlcohol']
         return nameRu, nameEn, typeAlcohol
 
-print(genwordGenerator().alcoholDrinking())
+    def alias(self, alias, sex):
+        data = {
+            'alias': alias,
+            'sex': sex
+        }
+        req = self.Session.post(self.url('alias'), headers = self.headers, data = data).json()['result']
+        return req['alias']
+
+print(genwordGenerator().alias('rodent', 2))
