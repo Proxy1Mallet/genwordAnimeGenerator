@@ -40,4 +40,9 @@ class genwordGenerator:
         req = self.Session.post(self.url('slogan'), headers=self.headers, data=data).json()['result']
         return req
 
-print(genwordGenerator().slogan('Что рекламируем?'))
+    def login(self, firstname, surname, patronymic, nickname):
+        data = {'firstname': firstname, 'surname': surname, 'patronymic': patronymic, 'nickname': nickname}
+        req = self.Session.post(self.url('login'), headers=self.headers, data=data).json()['result']
+        return req[0]['login']
+
+print(genwordGenerator().login('Proxy', 'Mallet', 'Kursedovich', 'ProxyMallet'))
