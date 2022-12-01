@@ -9,8 +9,9 @@ class genwordGenerator:
 
     def anime(self):
         req = self.Session.post(self.url('anime'), headers = self.headers).json()['result']
-        if input('1 - Eng\n2 - Rus\n>>> ') == '1': return req['nameEn']
-        else: return req['nameRu']
+        nameEn = req['nameEn']
+        nameRu = ['nameRu']
+        return  nameRu, nameRu
 
     def words(self):
         req = self.Session.post(self.url('word'), headers=self.headers).json()['result']
@@ -22,4 +23,11 @@ class genwordGenerator:
         source = req['source']
         return phrase, source
 
-print(genwordGenerator().winged())
+    def alcoholDrinking(self):
+        req = self.Session.post(self.url('alcohol-drinking'), headers=self.headers).json()['result']
+        nameRu = req['nameRu']
+        nameEn = req['nameEn']
+        typeAlcohol = req['typeAlcohol']
+        return nameRu, nameEn, typeAlcohol
+
+print(genwordGenerator().alcoholDrinking())
