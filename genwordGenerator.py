@@ -31,11 +31,13 @@ class genwordGenerator:
         return nameRu, nameEn, typeAlcohol
 
     def alias(self, alias, sex):
-        data = {
-            'alias': alias,
-            'sex': sex
-        }
+        data = {'alias': alias, 'sex': sex}
         req = self.Session.post(self.url('alias'), headers = self.headers, data = data).json()['result']
         return req['alias']
 
-print(genwordGenerator().alias('rodent', 2))
+    def slogan(self, slogan):
+        data = {slogan: slogan}
+        req = self.Session.post(self.url('slogan'), headers=self.headers, data=data).json()['result']
+        return req
+
+print(genwordGenerator().slogan('Что рекламируем?'))
