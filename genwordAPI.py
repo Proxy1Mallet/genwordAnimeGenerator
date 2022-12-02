@@ -1,7 +1,7 @@
 from .util import headers, objects
 from requests import Session
 
-class genwordGenerator:
+class genwordAPI:
     def __init__(self):
         self.Session = Session()
         self.url = 'https://genword.ru/generators/{}/new/'.format
