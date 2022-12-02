@@ -1,7 +1,7 @@
 <details align = "center">
 <summary>ENG : </summary>
 
-###### This library is designed to work with the Genword site api
+###### This library is designed to work with the Genword site API
 
 ###### example :
 ```
