@@ -5,8 +5,8 @@
 
 ###### example :
 ```
-from genwordGenerator import genwordGenerator
-generator = genwordGenerator()
+from genwordAPI import genwordAPI
+generator = genwordAPI()
 print(generator.anime().nameEn)
 ```
 </details>
@@ -18,8 +18,8 @@ print(generator.anime().nameEn)
 
 ###### Пример :
 ```
-from genwordGenerator import genwordGenerator
-generator = genwordGenerator()
+from genwordAPI import genwordAPI
+generator = genwordAPI()
 print(generator.anime().nameRu)
 ````
 </details>
