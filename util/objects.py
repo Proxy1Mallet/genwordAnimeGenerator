@@ -80,15 +80,7 @@ class Login:
     def __init__(self, data):
         self.json = data
         self.result = None
-        self.login1 = None
-        self.login2 = None
-        self.login3 = None
-        self.login4 = None
-        self.login5 = None
-        self.login6 = None
-        self.login7 = None
-        self.login8 = None
-        self.login9 = None
+        self.login = None
 
     @property
     def Login(self):
@@ -102,4 +94,5 @@ class Login:
         self.login7 = self.json['result'][6]['login']
         self.login8 = self.json['result'][7]['login']
         self.login9 = self.json['result'][8]['login']
+        self.login10 = self.json['result'][9]['login']
         return self

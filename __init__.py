@@ -1,2 +1,2 @@
 from .util import headers, objects
-from .genwordGenerator import *
+from .genwordAPI import *   
