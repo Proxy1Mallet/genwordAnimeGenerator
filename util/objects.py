@@ -85,14 +85,14 @@ class Login:
     @property
     def Login(self):
         self.result = self.json['result']
-        self.login1 = self.json['result'][0]['login']
-        self.login2 = self.json['result'][1]['login']
-        self.login3 = self.json['result'][2]['login']
-        self.login4 = self.json['result'][3]['login']
-        self.login5 = self.json['result'][4]['login']
-        self.login6 = self.json['result'][5]['login']
-        self.login7 = self.json['result'][6]['login']
-        self.login8 = self.json['result'][7]['login']
-        self.login9 = self.json['result'][8]['login']
-        self.login10 = self.json['result'][9]['login']
+        self.login = (self.json['result'][0]['login'],
+                       self.json['result'][1]['login'],
+                       self.json['result'][2]['login'],
+                       self.json['result'][3]['login'],
+                       self.json['result'][4]['login'],
+                       self.json['result'][5]['login'],
+                       self.json['result'][6]['login'],
+                       self.json['result'][7]['login'],
+                       self.json['result'][8]['login'],
+                       self.json['result'][9]['login'])
         return self
