@@ -1,3 +1,7 @@
+<h2 align = "center">
+<img src = "https://genword.ru/templates/default/img/logo.png"><br></br>genwordAPI
+</h2>
+
 <details align = "center">
 <summary>ENG : </summary>
 
