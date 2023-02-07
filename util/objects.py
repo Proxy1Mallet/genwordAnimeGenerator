@@ -7,9 +7,12 @@ class Anime:
 
     @property
     def Anime(self):
-        self.result = self.json['result']
-        self.nameRu = self.json['result']['nameRu']
-        self.nameEn = self.json['result']['nameEn']
+        try: self.result = self.json['result']
+        except(KeyError, TypeError): pass
+        try: self.nameRu = self.json['result']['nameRu']
+        except(KeyError, TypeError): pass
+        try: self.nameEn = self.json['result']['nameEn']
+        except(KeyError, TypeError): pass
         return self
 
 class Words:
@@ -17,11 +20,16 @@ class Words:
         self.json = data
         self.result = None
         self.word = None
+        self.wData = None
 
     @property
     def Words(self):
-        self.result = self.json['result']
-        self.word = self.json['result']['word']
+        try: self.result = self.json['result']
+        except(KeyError, TypeError): pass
+        try: self.word = self.json['result']['word']
+        except(KeyError, TypeError): pass
+        try: self.wData = self.json['result']['wData']
+        except(KeyError, TypeError): pass
         return self
 
 class Winged:
@@ -33,9 +41,12 @@ class Winged:
 
     @property
     def Winged(self):
-        self.result = self.json['result']
-        self.phrase = self.json['result']['phrase']
-        self.source = self.json['result']['source']
+        try: self.result = self.json['result']
+        except(KeyError, TypeError): pass
+        try: self.phrase = self.json['result']['phrase']
+        except(KeyError, TypeError): pass
+        try: self.source = self.json['result']['source']
+        except(KeyError, TypeError): pass
         return self
 
 class AlcoholDrinking:
@@ -45,13 +56,20 @@ class AlcoholDrinking:
         self.nameRu = None
         self.nameEn = None
         self.typeAlcohol = None
+        self.ingredients = None
 
     @property
     def AlcoholDrinking(self):
-        self.result = self.json['result']
-        self.nameRu = self.json['result']['nameRu']
-        self.nameEn = self.json['result']['nameEn']
-        self.typeAlcohol = self.json['result']['typeAlcohol']
+        try: self.result = self.json['result']
+        except(KeyError, TypeError): pass
+        try: self.nameRu = self.json['result']['nameRu']
+        except(KeyError, TypeError): pass
+        try: self.nameEn = self.json['result']['nameEn']
+        except(KeyError, TypeError): pass
+        try: self.typeAlcohol = self.json['result']['typeAlcohol']
+        except(KeyError, TypeError): pass
+        try: self.typeAlcohol = self.json['ingridients']
+        except(KeyError, TypeError): pass
         return self
 
 class Alias:
@@ -62,8 +80,10 @@ class Alias:
 
     @property
     def Alias(self):
-        self.result = self.json['result']
-        self.alias = self.json['result']['alias']
+        try: self.result = self.json['result']
+        except(KeyError, TypeError): pass
+        try: self.alias = self.json['result']['alias']
+        except(KeyError, TypeError): pass
         return self
 
 class Slogan:
@@ -73,26 +93,16 @@ class Slogan:
 
     @property
     def Slogan(self):
-        self.slogan = self.json
+        try: self.slogan = self.json['result']
+        except(KeyError, TypeError): pass
         return self
 
 class Login:
     def __init__(self, data):
         self.json = data
         self.result = None
-        self.login = None
 
     @property
     def Login(self):
-        self.result = self.json['result']
-        self.login1 = self.json['result'][0]['login']
-        self.login2 = self.json['result'][1]['login']
-        self.login3 = self.json['result'][2]['login']
-        self.login4 = self.json['result'][3]['login']
-        self.login5 = self.json['result'][4]['login']
-        self.login6 = self.json['result'][5]['login']
-        self.login7 = self.json['result'][6]['login']
-        self.login8 = self.json['result'][7]['login']
-        self.login9 = self.json['result'][8]['login']
-        self.login10 = self.json['result'][9]['login']
-        return self
+        try: self.result = self.json['result']
+        except(KeyError, TypeError): pass
