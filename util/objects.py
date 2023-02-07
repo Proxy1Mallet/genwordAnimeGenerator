@@ -106,3 +106,4 @@ class Login:
     def Login(self):
         try: self.result = self.json['result']
         except(KeyError, TypeError): pass
+        return self
