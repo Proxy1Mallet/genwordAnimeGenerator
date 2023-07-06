@@ -8,7 +8,7 @@
 ###### This library is designed to work with the Genword site API
 
 ###### example :
-```
+```py3
 from genwordAPI import genwordAPI
 generator = genwordAPI()
 print(generator.anime().nameEn)
@@ -21,7 +21,7 @@ print(generator.anime().nameEn)
 ###### Эта библиотека предназначена для работы с API сайта Genword.
 
 ###### Пример :
-```
+```py3
 from genwordAPI import genwordAPI
 generator = genwordAPI()
 print(generator.anime().nameRu)
