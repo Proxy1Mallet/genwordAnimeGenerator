@@ -1,44 +1,48 @@
 from .objects import *
 from requests import Session
 from fake_useragent import FakeUserAgent
-class genword_API:
-    def __init__(self, proxies : dict = None):
-        self.session = Session()
-        self.url = 'https://genword.ru/generators/{}/new/'.format
-        self.headers = {
-            'user-agent': FakeUserAgent().random,
-            'accept-encoding': 'gzip, deflate, br',
-            'accept': 'application/json, text/javascript, */*; q=0.01',
-            'x-requested-with': 'XMLHttpRequest'
-        }
-        self.data = {
-            'x-csrf-token': self.session.get(url = 'https://genword.ru/', headers = self.headers).text[6901:][:64],
-            'x-powered-by': 'PHP/7.2.34',
-            'vary': 'Accept-Encoding'
-        }
-        self.proxies = proxies
+class Data:
+    _session = Session()
+    _url = 'https://genword.ru/generators/{}/new/'.format
+    _headers = {
+        'user-agent': FakeUserAgent().random,
+        'accept-encoding': 'gzip, deflate, br',
+        'accept': 'application/json, text/javascript, */*; q=0.01',
+        'x-requested-with': 'XMLHttpRequest'
+    }
+    _data = {
+        'x-csrf-token': _session.get(url = 'https://genword.ru/', headers = _headers).text[6901:][:64],
+        'x-powered-by': 'PHP/7.2.34',
+        'vary': 'Accept-Encoding'
+    }
 
-    def anime(self) -> str:
-        req = self.session.post(url = self.url('anime'), data = self.data, headers = self.headers, proxies = self.proxies)
+class GenwordAPI(Data):
+    @classmethod
+    def anime(cls) -> int | ObjectAnime:
+        req = cls._session.post(url = cls._url('anime'), data = cls._data, headers = cls._headers)
         if req.status_code != 200: return req.status_code
-        else: return obj_anime(data = req.json()).obj_anime
+        else: return ObjectAnime(data = req.json()).object_anime
 
-    def words(self) -> str:
-        req = self.session.post(url = self.url('word'), data = self.data, headers = self.headers, proxies = self.proxies)
+    @classmethod
+    def words(cls) -> int | ObjectWords:
+        req = cls._session.post(url = cls._url('word'), data = cls._data, headers = cls._headers)
         if req.status_code != 200: return req.status_code
-        else: return obj_words(data = req.json()).obj_words
+        else: return ObjectWords(data = req.json()).object_words
 
-    def winged(self) -> str:
-        req = self.session.post(url = self.url('winged'), data = self.data, headers = self.headers, proxies = self.proxies)
+    @classmethod
+    def winged(cls) -> int | ObjectWinged:
+        req = cls._session.post(url = cls._url('winged'), data = cls._data, headers = cls._headers)
         if req.status_code != 200: return req.status_code
-        else: return obj_winged(data = req.json()).obj_winged
+        else: return ObjectWinged(data = req.json()).object_winged
 
-    def alcohol_drinking(self) -> str:
-        req = self.session.post(url = self.url('alcohol-drinking'), data = self.data, headers = self.headers, proxies = self.proxies)
+    @classmethod
+    def alcohol_drinking(cls) -> int | ObjectAlcoholDrinking:
+        req = cls._session.post(url = cls._url('alcohol-drinking'), data = cls._data, headers = cls._headers)
         if req.status_code != 200: return  req.status_code
-        else: return obj_alcohol_drinking(data = req.json()).obj_alcohol_drinking
+        else: return ObjectAlcoholDrinking(data = req.json()).object_alcohol_drinking
 
-    def alias(self, animal : str, sex : int) -> str:
+    @classmethod
+    def alias(cls, animal : str, sex : int) -> int | ObjectAlias:
         """
         This function is designed to generate an alias for an animal
 
@@ -50,12 +54,13 @@ class genword_API:
 
         :return: an alias for an animal in json format
         """
-        self.data.update(alias = animal, sex = sex)
-        req = self.session.post(url = self.url('alias'), headers = self.headers, data = self.data, proxies = self.proxies)
+        cls._data.update(alias = animal, sex = sex)
+        req = cls._session.post(url = cls._url('alias'), headers = cls._headers, data = cls._data)
         if req.status_code != 200: return req.status_code
-        else: return obj_alias(data = req.json()).obj_alias
+        else: return ObjectAlias(data = req.json()).object_alias
 
-    def slogan(self, slogan : str) -> str:
+    @classmethod
+    def slogan(cls, slogan : str) -> int | ObjectSlogan:
         """
         This function generates your slogan
 
@@ -64,12 +69,13 @@ class genword_API:
 
         :return: Slogan in json format
         """
-        self.data.update(slogan = slogan)
-        req = self.session.post(url = self.url('slogan'), headers = self.headers, data = self.data, proxies = self.proxies)
+        cls._data.update(slogan = slogan)
+        req = cls._session.post(url = cls._url('slogan'), headers = cls._headers, data = cls._data)
         if req.status_code != 200: return req.status_code
-        else: return obj_slogan(data = req.json()).obj_slogan
+        else: return ObjectSlogan(data = req.json()).object_slogan
 
-    def login(self, firstname : str, surname : str, patronymic : str, nickname : str) -> str:
+    @classmethod
+    def login(cls, firstname : str, surname : str, patronymic : str, nickname : str) -> int | ObjectLogin:
         """
         This function is designed to generate logins
 
@@ -87,7 +93,7 @@ class genword_API:
 
         :return: 10 logins in json format
         """
-        self.data.update(firstname = firstname, surname = surname, patronymic = patronymic, nickname = nickname)
-        req = self.session.post(url = self.url('login'), headers = self.headers, data = self.data, proxies = self.proxies)
+        cls._data.update(firstname = firstname, surname = surname, patronymic = patronymic, nickname = nickname)
+        req = cls._session.post(url = cls._url('login'), headers = cls._headers, data = cls._data)
         if req.status_code != 200: return req.status_code
-        else: return obj_login(data = req.json()).obj_login
+        else: return ObjectLogin(data = req.json()).object_login

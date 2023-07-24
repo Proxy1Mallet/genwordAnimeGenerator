@@ -1,38 +1,36 @@
-class obj_anime:
+class ObjectAnime:
     def __init__(self, data):
         self.json = data
         self.result =  None
-        self.nameRu = None
-        self.nameEn = None
+        self.name_ru = None
+        self.name_en = None
 
     @property
-    def obj_anime(self):
-        try: self.result = self.json['result']
-        except(KeyError, TypeError): pass
-        try: self.nameRu = self.json['result']['nameRu']
-        except(KeyError, TypeError): pass
-        try: self.nameEn = self.json['result']['nameEn']
+    def object_anime(self):
+        try:
+            self.result = self.json['result']
+            self.name_ru = self.json['result']['nameRu']
+            self.name_en = self.json['result']['nameEn']
         except(KeyError, TypeError): pass
         return self
 
-class obj_words:
+class ObjectWords:
     def __init__(self, data):
         self.json = data
         self.result = None
         self.word = None
-        self.wData = None
+        self.w_data = None
 
     @property
-    def obj_words(self):
-        try: self.result = self.json['result']
-        except(KeyError, TypeError): pass
-        try: self.word = self.json['result']['word']
-        except(KeyError, TypeError): pass
-        try: self.wData = self.json['result']['wData']
+    def object_words(self):
+        try:
+            self.result = self.json['result']
+            self.word = self.json['result']['word']
+            self.w_data = self.json['result']['wData']
         except(KeyError, TypeError): pass
         return self
 
-class obj_winged:
+class ObjectWinged:
     def __init__(self, data):
         self.json = data
         self.result = None
@@ -40,70 +38,67 @@ class obj_winged:
         self.source = None
 
     @property
-    def obj_winged(self):
-        try: self.result = self.json['result']
-        except(KeyError, TypeError): pass
-        try: self.phrase = self.json['result']['phrase']
-        except(KeyError, TypeError): pass
-        try: self.source = self.json['result']['source']
+    def object_winged(self):
+        try:
+            self.result = self.json['result']
+            self.phrase = self.json['result']['phrase']
+            self.source = self.json['result']['source']
         except(KeyError, TypeError): pass
         return self
 
-class obj_alcohol_drinking:
+class ObjectAlcoholDrinking:
     def __init__(self, data):
         self.json = data
         self.result = None
-        self.nameRu = None
-        self.nameEn = None
-        self.typeAlcohol = None
+        self.name_ru = None
+        self.name_en = None
+        self.type_alcohol = None
         self.ingredients = None
 
     @property
-    def obj_alcohol_drinking(self):
-        try: self.result = self.json['result']
-        except(KeyError, TypeError): pass
-        try: self.nameRu = self.json['result']['nameRu']
-        except(KeyError, TypeError): pass
-        try: self.nameEn = self.json['result']['nameEn']
-        except(KeyError, TypeError): pass
-        try: self.typeAlcohol = self.json['result']['typeAlcohol']
-        except(KeyError, TypeError): pass
-        try: self.typeAlcohol = self.json['ingridients']
+    def object_alcohol_drinking(self):
+        try:
+            self.result = self.json['result']
+            self.name_ru = self.json['result']['nameRu']
+            self.name_en = self.json['result']['nameEn']
+            self.type_alcohol = self.json['result']['typeAlcohol']
+            self.ingridients = self.json['ingridients']
         except(KeyError, TypeError): pass
         return self
 
-class obj_alias:
+class ObjectAlias:
     def __init__(self, data):
         self.json = data
         self.result = None
         self.alias = None
 
     @property
-    def obj_alias(self):
-        try: self.result = self.json['result']
-        except(KeyError, TypeError): pass
-        try: self.alias = self.json['result']['alias']
+    def object_alias(self):
+        try:
+            self.result = self.json['result']
+            self.alias = self.json['result']['alias']
         except(KeyError, TypeError): pass
         return self
 
-class obj_slogan:
+class ObjectSlogan:
     def __init__(self, data):
         self.json = data
         self.slogan = None
 
     @property
-    def obj_slogan(self):
-        try: self.slogan = self.json['result']
+    def object_slogan(self):
+        try:
+            self.slogan = self.json['result']
         except(KeyError, TypeError): pass
         return self
 
-class obj_login:
+class ObjectLogin:
     def __init__(self, data):
         self.json = data
         self.result = None
 
     @property
-    def obj_login(self):
+    def object_login(self):
         try: self.result = self.json['result']
         except(KeyError, TypeError): pass
         return self
