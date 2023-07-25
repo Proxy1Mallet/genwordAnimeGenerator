@@ -9,9 +9,9 @@
 
 ###### example :
 ```py3
-from genwordAPI import genwordAPI
-generator = genwordAPI()
-print(generator.anime().nameEn)
+from genword_API import GenwordAPI
+genword_API = GenwordAPI()
+print(anime_en := genword_API.anime().name_en)
 ```
 </details>
 
@@ -22,9 +22,9 @@ print(generator.anime().nameEn)
 
 ###### Пример :
 ```py3
-from genwordAPI import genwordAPI
-generator = genwordAPI()
-print(generator.anime().nameRu)
+from genword_API import GenwordAPI
+genword_API = GenwordAPI()
+print(anime_ru := genword_API.anime().name_ru)
 ````
 </details>
 
