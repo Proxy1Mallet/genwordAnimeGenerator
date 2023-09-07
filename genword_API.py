@@ -16,27 +16,27 @@ class Data:
 
 class GenwordAPI(Data):
     @classmethod
-    def anime(cls) -> int | ObjectAnime:
+    def anime(cls) -> int | Anime:
         _req = cls._session.post(url = cls._url('anime'), data = cls._data, headers = cls._headers)
-        return _req.status_code if _req.status_code != 200 else ObjectAnime(data = _req.json()).object_anime
+        return _req.status_code if _req.status_code != 200 else Anime(**_req.json()['result'])
 
     @classmethod
-    def words(cls) -> int | ObjectWords:
+    def words(cls) -> int | Words:
         _req = cls._session.post(url = cls._url('word'), data = cls._data, headers = cls._headers)
-        return _req.status_code if _req.status_code != 200 else ObjectWords(data = _req.json()).object_words
+        return _req.status_code if _req.status_code != 200 else Words(**_req.json()['result'])
 
     @classmethod
-    def winged(cls) -> int | ObjectWinged:
+    def winged(cls) -> int | Winged:
         _req = cls._session.post(url = cls._url('winged'), data = cls._data, headers = cls._headers)
-        return _req.status_code if _req.status_code != 200 else ObjectWinged(data = _req.json()).object_winged
+        return _req.status_code if _req.status_code != 200 else Winged(**_req.json()['result'])
 
     @classmethod
-    def alcohol_drinking(cls) -> int | ObjectAlcoholDrinking:
+    def alcohol_drinking(cls) -> int | AlcoholDrinking:
         _req = cls._session.post(url = cls._url('alcohol-drinking'), data = cls._data, headers = cls._headers)
-        return _req.status_code if _req.status_code != 200 else ObjectAlcoholDrinking(data = _req.json()).object_alcohol_drinking
+        return _req.status_code if _req.status_code != 200 else AlcoholDrinking(**_req.json()['result'])
 
     @classmethod
-    def alias(cls, animal : str, sex : int) -> int | ObjectAlias:
+    def alias(cls, animal : str, sex : int) -> int | Alias:
         """
         This function is designed to generate an alias for an animal
 
@@ -50,7 +50,7 @@ class GenwordAPI(Data):
         """
         cls._data.update(alias = animal, sex = sex)
         _req = cls._session.post(url = cls._url('alias'), headers = cls._headers, data = cls._data)
-        return _req.status_code if _req.status_code != 200 else ObjectAlias(data = _req.json()).object_alias
+        return _req.status_code if _req.status_code != 200 else Alias(**_req.json()['result'])
 
     @classmethod
     def slogan(cls, slogan : str) -> int | ObjectSlogan:
@@ -64,7 +64,7 @@ class GenwordAPI(Data):
         """
         cls._data.update(slogan = slogan)
         _req = cls._session.post(url = cls._url('slogan'), headers = cls._headers, data = cls._data)
-        return _req.status_code if _req.status_code != 200 else ObjectSlogan(data = _req.json()).object_slogan
+        return _req.status_code if _req.status_code != 200 else Slogan(**_req.json()['result'])
 
     @classmethod
     def login(cls, firstname : str, surname : str, patronymic : str, nickname : str) -> int | ObjectLogin:
@@ -87,4 +87,4 @@ class GenwordAPI(Data):
         """
         cls._data.update(firstname = firstname, surname = surname, patronymic = patronymic, nickname = nickname)
         _req = cls._session.post(url = cls._url('login'), headers = cls._headers, data = cls._data)
-        return _req.status_code if _req.status_code != 200 else ObjectLogin(data = _req.json()).object_login
+        return _req.status_code if _req.status_code != 200 else Login(**_req.json())
