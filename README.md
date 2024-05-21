@@ -1,34 +1,26 @@
 <h2 align = "center">
-<img src = "https://genword.ru/templates/default/img/logo.png"><br></br>genwordAPI
+<img src = "https://genword.ru/templates/default/img/logo.png"><br></br>genword
 </h2>
 
-<details align = "center">
-<summary>ENG : </summary>
+<details>
+<summary>ENG / RU : </summary>
 
-###### This library is designed to work with the Genword site API
+###### ᴛʜɪs ʟɪʙʀᴀʀʏ ɪs ᴅᴇsɪɢɴᴇᴅ ᴛᴏ ᴡᴏʀᴋ ᴡɪᴛʜ ᴛʜᴇ ɢᴇɴᴡᴏʀᴅ ᴡᴇʙsɪᴛᴇ.
+###### ϶ᴛᴀ бибᴧиоᴛᴇᴋᴀ ᴨᴩᴇднᴀзнᴀчᴇнᴀ дᴧя ᴩᴀбоᴛы ᴄ ᴄᴀйᴛоʍ ɢᴇɴᴡᴏʀᴅ.
 
 ###### example :
 ```py3
-from genword_API import GenwordAPI
-genword_API = GenwordAPI()
-print(anime_en := genword_API.anime().name_en)
+from genword import Genword
+
+for _ in Genword.login(firstname = 'Прокси', 
+                       surname = 'Мистаке', 
+                       patronymic = 'Рединский', 
+                       nickname = 'Proxy1Mistake'):
+    print(_.login)
 ```
 </details>
 
-<details align = "center">
-<summary>RU : </summary>
-
-###### Эта библиотека предназначена для работы с API сайта Genword.
-
-###### Пример :
-```py3
-from genword_API import GenwordAPI
-genword_API = GenwordAPI()
-print(anime_ru := genword_API.anime().name_ru)
-````
-</details>
-
-<details align = "center">
+<details>
 <summary>ᴍʏ sᴏᴄɪᴀʟ ɴᴇᴛᴏᴡʀᴋ : </summary>
 <br>
 <a href = "https://t.me/Proxy1Mistake" target="_blank">
