@@ -1,2 +1,2 @@
 from .objects import *
-from .genword_API import *
+from .genword import *

@@ -24,8 +24,8 @@ class AlcoholDrinking(BaseModel):
 class Alias(BaseModel):
     alias: str
 
-class Slogan:
+class Slogan(BaseModel):
     slogan: str
 
-class Login:
-    result: dict[str]
+class Login(BaseModel):
+    login: str
